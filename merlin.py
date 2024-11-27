@@ -1,10 +1,14 @@
-import speech_recognition as aa
+""" Importing libraries
+ Note: I downloaded/installed most of the library packages via git bash before importing library in my IDE """
+
+import speech_recognition as me # me is the name recognizer
 import pyttsx3
 import pywhatkit
 import datetime
 import wikipedia
 
-listener = aa.Recognizer()
+# creating a listener that recognizer our voice
+listener = me.Recognizer()
 
 machine = pyttsx3.init()
 
@@ -14,8 +18,10 @@ def talk(text):
 
 def input_instruction():
     global instruction
+    
+    # A try block that raises an error if the microphone doesn't work and will do nothing if an exception occurs
     try:
-        with aa.Microphone() as origin:
+        with me.Microphone() as origin:
             print("listening")
             speech = listener.listen(origin)
             instruction = listener.recognize_google(speech)
